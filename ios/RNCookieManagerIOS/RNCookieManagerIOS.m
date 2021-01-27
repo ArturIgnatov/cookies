@@ -183,7 +183,8 @@ RCT_EXPORT_METHOD(
         for (NSHTTPCookie *c in cookieStorage.cookies) {
             [cookieStorage deleteCookie:c];
         }
-        resolve(nil);
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        resolve(@(YES));
     }
 }
 
